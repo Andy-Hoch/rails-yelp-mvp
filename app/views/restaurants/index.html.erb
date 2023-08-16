@@ -1,7 +1,7 @@
 <div class="container mt-5 mx-auto">
   <h1>All Restaurants</h1>
   <p><%= link_to "Add a new Restaurant", new_restaurant_path, class: "btn btn-primary" %></p>
-  <div class="row">
+  <div class="row m-0">
     <% @restaurants.each do |restaurant| %>
       <div class="card mb-3 me-3 p-0" style="width: 18rem;">
         <div class="card-header">
