@@ -1,0 +1,23 @@
+<div class="container mt-5">
+  <h1><%= @restaurant.name %></h1>
+    <div class="card mb-3 me-3 p-0" style="width: 18rem;">
+      <div class="card-header">
+        <%= @restaurant.name %>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Category: <%= @restaurant.category %></li>
+        <li class="list-group-item">Address: <%= @restaurant.address %></li>
+        <li class="list-group-item">Phone Number: <%= @restaurant.phone_number ? @restaurant.phone_number : " -" %></li>
+      </ul>
+    </div>
+  <%= link_to "Leave a review", new_restaurant_review_path(@restaurant), class: "btn btn-primary mb-5"%>
+  <h2>Reviews</h2>
+  <% if @restaurant.reviews.empty? %>
+    <p>Sorry, no reviews yet!</p>
+  <% else %>
+    <% @restaurant.reviews.each do |review| %>
+      <p><%= review.rating %> ★ - <%= review.content %></p>
+    <% end %>
+  <% end %>
+  <%= link_to "back to the overview", restaurants_path, class: "btn btn-secondary"%>
+</div>

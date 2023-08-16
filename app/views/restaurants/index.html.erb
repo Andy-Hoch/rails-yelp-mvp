@@ -1,0 +1,19 @@
+<div class="container mt-5 mx-auto">
+  <h1>All Restaurants</h1>
+  <p><%= link_to "Add a new Restaurant", new_restaurant_path, class: "btn btn-primary" %></p>
+  <div class="row">
+    <% @restaurants.each do |restaurant| %>
+      <div class="card mb-3 me-3 p-0" style="width: 18rem;">
+        <div class="card-header">
+          <%= restaurant.name %>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Category: <%= restaurant.category.capitalize %></li>
+          <li class="list-group-item">Address: <%= restaurant.address %></li>
+          <li class="list-group-item">Phone Number: <%= restaurant.phone_number ? restaurant.phone_number : " -" %></li>
+          <li class="list-group-item"><%= link_to "See details", restaurant_path(restaurant) %></li>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+</div>
